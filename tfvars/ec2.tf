@@ -7,7 +7,7 @@ resource "aws_instance" "roboshop" {
  tags = merge(
   var.common_tags,
   {
-    Name = "${var.project}-${var.instance[count.index]}-${var.environment}"
+    Name = "${var.project}-${var.instances[count.index]}-${var.environment}"  #roboshop.allow_all.dev
     component = var.instances[count.index]
     Environment = var.environment
   }
@@ -16,7 +16,7 @@ resource "aws_instance" "roboshop" {
 }
 
 resource "aws_security_group" "allow_all" {
-  name        = "${var.project}-${var.sg_name}-${var.environment}"
+  name        = "${var.project}-${var.sg_name}-${var.environment}"   #allow_all_dev
   description = var.sg_description
 
   ingress {
@@ -36,7 +36,7 @@ resource "aws_security_group" "allow_all" {
   }
 
   tags = merge (
-    var.common_tags
+    var.common_tags,
   {
     name     = "${var.project}-${var.sg_name}-${var.environment}"
   }
