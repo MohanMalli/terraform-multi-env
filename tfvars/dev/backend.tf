@@ -1,4 +1,4 @@
-  bucket = "84s-remote-site-dev"
+  bucket = "malli-remote-state"
   key    = "tfvars"
   region = "us-east-1"
   encrypt = true
